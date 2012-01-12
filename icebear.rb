@@ -13,9 +13,9 @@ def form_root(shape = nil, shape_two = nil)
   # first syllable
   root << first_consonant if root_shape < 75
   root << first_vowel 
-  root << second_final_consonant if root_shape_two.between?(42, 88)
-  root << second_medial_consonant if root_shape_two < 42
-  root << second_syllable if root_shape_two < 42
+  root << second_final_consonant if root_shape_two.between?(21, 88)
+  root << second_medial_consonant if root_shape_two < 21
+  root << second_syllable if root_shape_two < 21
   root
 end
 
