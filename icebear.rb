@@ -107,9 +107,9 @@ def second_syllable
   
 #  syllable << ":" if syllable_shape < 29
   syllable << second_vowel
-  syllable << third_final_consonant if syllable_shape < 40 && syllable_shape >= 10
-  syllable << third_medial_consonant if syllable_shape < 10
-  syllable << third_vowel if syllable_shape < 10
+  syllable << third_final_consonant if syllable_shape < 40 && syllable_shape >= 5
+  syllable << third_medial_consonant if syllable_shape < 5
+  syllable << third_vowel if syllable_shape < 5
   syllable
 end
 
