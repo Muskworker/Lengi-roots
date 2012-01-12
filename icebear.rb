@@ -22,11 +22,11 @@ end
 def first_consonant
   consonant = { 
     6 => %w{t k s m n},
-    5 => %w{p b d g f l z mm nn},
-    4 => %w{y bb dd gg ll zz tt kk t‘ k‘ m‘ n‘},
-    3 => %w{x yy ! pp p‘ b‘ d‘ g‘ q},
-    2 => %w{mm‘ nn‘ ‘},
-    1 => %w{h bb‘ dd‘ gg‘ q‘}
+    5 => %w{p b d g f l z μ ν},
+    4 => %w{i β δ γ λ ζ th kh tᴥ kᴥ mᴥ nᴥ},
+    3 => %w{x ι ¿ ph p¿ bᴥ dᴥ gᴥ q},
+    2 => %w{μᴥ νᴥ ᴥ},
+    1 => %w{h βᴥ δᴥ γᴥ ϙ}
   }
   
   chosen = rand 41
@@ -43,10 +43,10 @@ end
 def first_vowel
   vowel = { 
     5 => %w{i},
-    4 => %w{u ii},
-    3 => %w{a uu},
-    2 => %w{e aa o ee},
-    1 => %w{à oo ò àà òò h},
+    4 => %w{u ι},
+    3 => %w{a υ},
+    2 => %w{e α o η},
+    1 => %w{à ω ò ὰ ὼ h},
   }
 
   chosen = rand 39
@@ -62,11 +62,11 @@ end
 def second_medial_consonant
   consonant = { 
     6 => %w{t k s m n},
-    5 => %w{p b d g f l z mm nn},
-    4 => %w{y bb dd gg ll zz},
-    3 => %w{tt kk t‘ k‘ m‘ n‘ x yy ! q},
-    2 => %w{pp p‘ b‘ d‘ g‘ ‘},
-    1 => %w{mm‘ nn‘ h q‘}
+    5 => %w{p b d g f l z μ ν},
+    4 => %w{i ν δ γ λ ζ},
+    3 => %w{th kh tᴥ kᴥ mᴥ nᴥ x ι ¿ q},
+    2 => %w{ph pᴥ bᴥ dᴥ gᴥ ᴥ},
+    1 => %w{μᴥ νᴥ h ϙ}
     # none: BQ DQ GQ 
   }
   
@@ -84,11 +84,11 @@ end
 def second_final_consonant
   consonant = { 
     6 => %w{t k s m n},
-    5 => %w{p b d g f l z mm nn},
-    4 => %w{y bb dd gg ll zz tt kk t‘ k‘ m‘ n‘},
-    3 => %w{x yy ! pp p‘ b‘ d‘ g‘ q},
-    2 => %w{mm‘ nn‘ ‘},
-    1 => %w{h bb‘ dd‘ gg‘ q‘}
+    5 => %w{p b d g f l z μ ν},
+    4 => %w{i β δ γ λ ζ th kh tᴥ kᴥ mᴥ nᴥ},
+    3 => %w{x ι ¿ ph pᴥ bᴥ dᴥ gᴥ q},
+    2 => %w{μᴥ νᴥ ᴥ},
+    1 => %w{h βᴥ δᴥ γᴥ ϙ}
   }
   
   chosen = rand 41
@@ -117,9 +117,9 @@ def second_vowel
   vowel = { 
     5 => %w{i},
     4 => %w{u},
-    3 => %w{ii a},
-    2 => %w{uu e o},
-    1 => %w{aa ee à ò},
+    3 => %w{ι a},
+    2 => %w{υ e o},
+    1 => %w{α η à ò},
     # Out: O Ə Ɔ X
   }
 
@@ -136,11 +136,11 @@ end
 def third_medial_consonant
   consonant = { 
     6 => %w{t k s m n},
-    5 => %w{p b d g f l z mm nn},
-    4 => %w{y bb dd gg ll zz},
-    3 => %w{tt kk t‘ k‘ m‘ n‘ x yy ! q},
-    2 => %w{pp p‘ b‘ d‘ g‘ ‘},
-    1 => %w{mm‘ nn‘ h q‘}
+    5 => %w{p b d g f l z μ ν},
+    4 => %w{i β δ γ λ ζ},
+    3 => %w{th kh tᴥ kᴥ mᴥ nᴥ x ι ¿ q},
+    2 => %w{ph pᴥ bᴥ dᴥ gᴥ ᴥ},
+    1 => %w{μᴥ νᴥ h ϙ}
     # none: BQ DQ GQ 
   }
   
@@ -158,11 +158,11 @@ end
 def third_final_consonant
   consonant = { 
     6 => %w{t k s m n},
-    5 => %w{p b d g f l z mm nn},
-    4 => %w{y bb dd gg ll zz tt kk t‘ k‘ m‘ n‘},
-    3 => %w{x yy ! pp p‘ b‘ d‘ g‘ q},
-    2 => %w{mm‘ nn‘ ‘},
-    1 => %w{h bb‘ dd‘ gg‘ q‘}
+    5 => %w{p b d g f l z μ ν},
+    4 => %w{i β δ γ λ ζ th kh tᴥ kᴥ mᴥ nᴥ},
+    3 => %w{x ι ¿ ph pᴥ bᴥ dᴥ gᴥ q},
+    2 => %w{μᴥ νᴥ ᴥ},
+    1 => %w{h βᴥ δᴥ γᴥ ϙ}
   }
   
   chosen = rand 41
@@ -180,9 +180,9 @@ def third_vowel
   vowel = { 
     5 => %w{i},
     4 => %w{u},
-    3 => %w{ii a},
-    2 => %w{uu e o},
-    1 => %w{aa ee à ò},
+    3 => %w{ι a},
+    2 => %w{υ e o},
+    1 => %w{α η à ò},
     # Out: O Ə Ɔ X
   }
 
