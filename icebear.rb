@@ -1,10 +1,31 @@
 #!/usr/bin/env ruby
 # encoding: UTF-8
 
-def form_roots(num=3)
-  num.times do |num|
-    puts "%d: %s" % [num.next, form_root]
-  end
+def form_roots(num=3, form=:root)
+  case form
+  when :root
+	  num.times do |num|
+ 	  	puts "%d: %s" % [num.next, form_root]
+ 		end
+ 	when :suffix
+ 		num.times do |num|
+ 			puts "%d: -%s" % [num.next, form_suffix]
+ 		end
+ 	else
+ 		puts "Didn't recognize argument \"#{form}\"."
+ 	end
+end
+
+def form_suffix(shape = nil, shape_two = nil)
+  root_shape, root_shape_two, root = shape || rand(100), shape_two || rand(100), ""
+  
+  # first syllable
+  root << second_medial_consonant if root_shape < 95
+  root << second_vowel if !root_shape.between?(55,95)
+  root << second_final_consonant if root_shape_two.between?(10, 25) && !root_shape.between?(55,95)
+  root << second_medial_consonant if root_shape_two < 10 && !root_shape.between?(55,95)
+  root << second_syllable if root_shape_two < 10 && !root_shape.between?(55,95)
+  root
 end
 
 def form_root(shape = nil, shape_two = nil)
@@ -202,4 +223,4 @@ class Array
   end
 end
 
-form_roots ARGV[0].to_i
+form_roots ARGV[0].to_i, (ARGV[1] ? ARGV[1].to_sym : :root)
