@@ -45,7 +45,7 @@ def first_consonant
     6 => %w{t k s m n},
     5 => %w{p b d g f l z μ ν},
     4 => %w{i β δ γ λ ζ th kh tᴥ kᴥ mᴥ nᴥ},
-    3 => %w{x ι ¿ ph p¿ bᴥ dᴥ gᴥ q},
+    3 => %w{x ι ¿ ph pᴥ bᴥ dᴥ gᴥ q},
     2 => %w{μᴥ νᴥ ᴥ},
     1 => %w{h βᴥ δᴥ γᴥ ϙ}
   }
