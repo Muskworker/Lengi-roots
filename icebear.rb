@@ -67,7 +67,7 @@ end
 FIRST_CONSONANT = { 
   6 => %w{t k s m n},
   5 => %w{p b d g f l z ḿ ń},
-  4 => %w{j b́ d́ ǵ ĺ ź ḱ ḱ t̀ k̀ m̀ ǹ},
+  4 => %w{j b́ d́ ǵ ĺ ź t́ ḱ t̀ k̀ m̀ ǹ},
   3 => %w{x j́ ʼ ṕ p̀ b̀ d̀ g̀ q},
   2 => %w{m̂ n̂ q̀},
   1 => %w{h b̂ d̂ ĝ q́}
