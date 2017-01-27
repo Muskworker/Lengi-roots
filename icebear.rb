@@ -53,7 +53,7 @@ end
 
 def random_phoneme possibilities
   case possibilities.size
-  when 6
+  when 6 # Consonants
     chosen = rand 41
     return case 
     when chosen < 4 then possibilities[1].random
@@ -63,7 +63,7 @@ def random_phoneme possibilities
     when chosen < 31 then possibilities[5].random
     else possibilities[6].random
     end
-  when 5
+  when 5 # Vowels
     chosen = rand 39
     return case 
     when chosen < 5 then possibilities[1].random
