@@ -40,6 +40,17 @@ def form_root(shape = nil, shape_two = nil)
   root
 end
 
+def second_syllable
+  syllable_shape, syllable = rand(100), ""
+  
+#  syllable << ":" if syllable_shape < 29
+  syllable << random_phoneme(NONFIRST_VOWEL)
+  syllable << random_phoneme(INITIAL_OR_FINAL_CONSONANT) if syllable_shape < 40 && syllable_shape >= 5
+  syllable << random_phoneme(MEDIAL_CONSONANT) if syllable_shape < 5
+  syllable << random_phoneme(NONFIRST_VOWEL) if syllable_shape < 5
+  syllable
+end
+
 def random_phoneme possibilities
   case possibilities.size
   when 6
@@ -99,17 +110,6 @@ NONFIRST_VOWEL = {
   1 => %w{á é à ò},
   # Out: O Ə Ɔ X
 }
-
-def second_syllable
-  syllable_shape, syllable = rand(100), ""
-  
-#  syllable << ":" if syllable_shape < 29
-  syllable << random_phoneme(NONFIRST_VOWEL)
-  syllable << random_phoneme(INITIAL_OR_FINAL_CONSONANT) if syllable_shape < 40 && syllable_shape >= 5
-  syllable << random_phoneme(MEDIAL_CONSONANT) if syllable_shape < 5
-  syllable << random_phoneme(NONFIRST_VOWEL) if syllable_shape < 5
-  syllable
-end
 
 class Array
   def random
