@@ -21,7 +21,7 @@ def form_suffix(shape = nil, shape_two = nil)
   
   # first syllable
   root << random_phoneme(SECOND_MEDIAL_CONSONANT) if root_shape < 95
-  root << random_phoneme(SECOND_VOWEL) if !root_shape.between?(55,95)
+  root << random_phoneme(NONFIRST_VOWEL) if !root_shape.between?(55,95)
   root << random_phoneme(INITIAL_OR_FINAL_CONSONANT) if root_shape_two.between?(10, 25) && !root_shape.between?(55,95)
   root << random_phoneme(SECOND_MEDIAL_CONSONANT) if root_shape_two < 10 && !root_shape.between?(55,95)
   root << second_syllable if root_shape_two < 10 && !root_shape.between?(55,95)
@@ -91,7 +91,7 @@ SECOND_MEDIAL_CONSONANT = {
   # none: BQ DQ GQ 
 }
 
-SECOND_VOWEL = { 
+NONFIRST_VOWEL = { 
   5 => %w{i},
   4 => %w{u},
   3 => %w{í a},
@@ -110,23 +110,14 @@ THIRD_MEDIAL_CONSONANT = {
   # none: BQ DQ GQ 
 }
 
-THIRD_VOWEL = { 
-  5 => %w{i},
-  4 => %w{u},
-  3 => %w{í a},
-  2 => %w{ú e o},
-  1 => %w{á é à ò},
-  # Out: O Ə Ɔ X
-}
-
 def second_syllable
   syllable_shape, syllable = rand(100), ""
   
 #  syllable << ":" if syllable_shape < 29
-  syllable << random_phoneme(SECOND_VOWEL)
+  syllable << random_phoneme(NONFIRST_VOWEL)
   syllable << random_phoneme(INITIAL_OR_FINAL_CONSONANT) if syllable_shape < 40 && syllable_shape >= 5
   syllable << random_phoneme(THIRD_MEDIAL_CONSONANT) if syllable_shape < 5
-  syllable << random_phoneme(THIRD_VOWEL) if syllable_shape < 5
+  syllable << random_phoneme(NONFIRST_VOWEL) if syllable_shape < 5
   syllable
 end
 
