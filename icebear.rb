@@ -22,7 +22,7 @@ def form_suffix(shape = nil, shape_two = nil)
   # first syllable
   root << random_phoneme(SECOND_MEDIAL_CONSONANT) if root_shape < 95
   root << random_phoneme(SECOND_VOWEL) if !root_shape.between?(55,95)
-  root << random_phoneme(SECOND_FINAL_CONSONANT) if root_shape_two.between?(10, 25) && !root_shape.between?(55,95)
+  root << random_phoneme(INITIAL_OR_FINAL_CONSONANT) if root_shape_two.between?(10, 25) && !root_shape.between?(55,95)
   root << random_phoneme(SECOND_MEDIAL_CONSONANT) if root_shape_two < 10 && !root_shape.between?(55,95)
   root << second_syllable if root_shape_two < 10 && !root_shape.between?(55,95)
   root
@@ -32,9 +32,9 @@ def form_root(shape = nil, shape_two = nil)
   root_shape, root_shape_two, root = shape || rand(100), shape_two || rand(100), ""
   
   # first syllable
-  root << random_phoneme(FIRST_CONSONANT) if root_shape < 75
+  root << random_phoneme(INITIAL_OR_FINAL_CONSONANT) if root_shape < 75
   root << random_phoneme(FIRST_VOWEL) 
-  root << random_phoneme(SECOND_FINAL_CONSONANT) if root_shape_two.between?(21, 88)
+  root << random_phoneme(INITIAL_OR_FINAL_CONSONANT) if root_shape_two.between?(21, 88)
   root << random_phoneme(SECOND_MEDIAL_CONSONANT) if root_shape_two < 21
   root << second_syllable if root_shape_two < 21
   root
@@ -64,7 +64,7 @@ def random_phoneme possibilities
   end
 end
 
-FIRST_CONSONANT = { 
+INITIAL_OR_FINAL_CONSONANT = { 
   6 => %w{t k s m n},
   5 => %w{p b d g f l z ḿ ń},
   4 => %w{j b́ d́ ǵ ĺ ź t́ ḱ t̀ k̀ m̀ ǹ},
@@ -91,15 +91,6 @@ SECOND_MEDIAL_CONSONANT = {
   # none: BQ DQ GQ 
 }
 
-SECOND_FINAL_CONSONANT = { 
-  6 => %w{t k s m n},
-  5 => %w{p b d g f l z ḿ ń},
-  4 => %w{j b́ d́ ǵ ĺ ź t́ ḱ t̀ k̀ m̀ ǹ},
-  3 => %w{x j́ ʼ ṕ p̀ b̀ d̀ g̀ q},
-  2 => %w{m̂ n̂ q̀},
-  1 => %w{h b̂ d̂ ĝ q́}
-}
-
 SECOND_VOWEL = { 
   5 => %w{i},
   4 => %w{u},
@@ -119,15 +110,6 @@ THIRD_MEDIAL_CONSONANT = {
   # none: BQ DQ GQ 
 }
 
-THIRD_FINAL_CONSONANT = { 
-  6 => %w{t k s m n},
-  5 => %w{p b d g f l z ḿ ń},
-  4 => %w{j b́ d́ ǵ ĺ ź t́ ḱ t̀ k̀ m̀ ǹ},
-  3 => %w{x j́ ʼ ṕ p̀ b̀ d̀ g̀ q},
-  2 => %w{m̂ n̂ q̀},
-  1 => %w{h b̂ d̂ ĝ q́}
-}
-
 THIRD_VOWEL = { 
   5 => %w{i},
   4 => %w{u},
@@ -142,7 +124,7 @@ def second_syllable
   
 #  syllable << ":" if syllable_shape < 29
   syllable << random_phoneme(SECOND_VOWEL)
-  syllable << random_phoneme(THIRD_FINAL_CONSONANT) if syllable_shape < 40 && syllable_shape >= 5
+  syllable << random_phoneme(INITIAL_OR_FINAL_CONSONANT) if syllable_shape < 40 && syllable_shape >= 5
   syllable << random_phoneme(THIRD_MEDIAL_CONSONANT) if syllable_shape < 5
   syllable << random_phoneme(THIRD_VOWEL) if syllable_shape < 5
   syllable
