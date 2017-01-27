@@ -20,10 +20,10 @@ def form_suffix(shape = nil, shape_two = nil)
   root_shape, root_shape_two, root = shape || rand(100), shape_two || rand(100), ""
   
   # first syllable
-  root << random_phoneme(SECOND_MEDIAL_CONSONANT) if root_shape < 95
+  root << random_phoneme(MEDIAL_CONSONANT) if root_shape < 95
   root << random_phoneme(NONFIRST_VOWEL) if !root_shape.between?(55,95)
   root << random_phoneme(INITIAL_OR_FINAL_CONSONANT) if root_shape_two.between?(10, 25) && !root_shape.between?(55,95)
-  root << random_phoneme(SECOND_MEDIAL_CONSONANT) if root_shape_two < 10 && !root_shape.between?(55,95)
+  root << random_phoneme(MEDIAL_CONSONANT) if root_shape_two < 10 && !root_shape.between?(55,95)
   root << second_syllable if root_shape_two < 10 && !root_shape.between?(55,95)
   root
 end
@@ -35,7 +35,7 @@ def form_root(shape = nil, shape_two = nil)
   root << random_phoneme(INITIAL_OR_FINAL_CONSONANT) if root_shape < 75
   root << random_phoneme(FIRST_VOWEL) 
   root << random_phoneme(INITIAL_OR_FINAL_CONSONANT) if root_shape_two.between?(21, 88)
-  root << random_phoneme(SECOND_MEDIAL_CONSONANT) if root_shape_two < 21
+  root << random_phoneme(MEDIAL_CONSONANT) if root_shape_two < 21
   root << second_syllable if root_shape_two < 21
   root
 end
@@ -81,7 +81,7 @@ FIRST_VOWEL = {
   1 => %w{à ó ò â ô h}
 }
 
-SECOND_MEDIAL_CONSONANT = { 
+MEDIAL_CONSONANT = { 
   6 => %w{t k s m n},
   5 => %w{p b d g f l z ḿ ń},
   4 => %w{j b́ d́ ǵ ĺ ź},
@@ -100,23 +100,13 @@ NONFIRST_VOWEL = {
   # Out: O Ə Ɔ X
 }
 
-THIRD_MEDIAL_CONSONANT = { 
-  6 => %w{t k s m n},
-  5 => %w{p b d g f l z ḿ ń},
-  4 => %w{j b́ d́ ǵ ĺ ź},
-  3 => %w{t́ ḱ t̀ k̀ m̀ ǹ x j́ ʼ q},
-  2 => %w{ṕ p̀ b̀ d̀ g̀ q̀},
-  1 => %w{m̂ n̂ h q́}
-  # none: BQ DQ GQ 
-}
-
 def second_syllable
   syllable_shape, syllable = rand(100), ""
   
 #  syllable << ":" if syllable_shape < 29
   syllable << random_phoneme(NONFIRST_VOWEL)
   syllable << random_phoneme(INITIAL_OR_FINAL_CONSONANT) if syllable_shape < 40 && syllable_shape >= 5
-  syllable << random_phoneme(THIRD_MEDIAL_CONSONANT) if syllable_shape < 5
+  syllable << random_phoneme(MEDIAL_CONSONANT) if syllable_shape < 5
   syllable << random_phoneme(NONFIRST_VOWEL) if syllable_shape < 5
   syllable
 end
