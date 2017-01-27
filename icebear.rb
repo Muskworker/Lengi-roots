@@ -4,16 +4,16 @@
 def form_roots(num=3, form=:root)
   case form
   when :root
-	  num.times do |num|
- 	  	puts "%d: %s" % [num.next, form_root]
+	  num.times do |i|
+ 	  	puts "%d: %s" % [i.next, form_root]
  		end
  	when :suffix
- 		num.times do |num|
- 			puts "%d: -%s" % [num.next, form_suffix]
+ 		num.times do |i|
+ 			puts "%d: -%s" % [i.next, form_suffix]
  		end
  	else
  		puts "Didn't recognize argument \"#{form}\"."
- 	end
+  end
 end
 
 def form_suffix(shape = nil, shape_two = nil)
