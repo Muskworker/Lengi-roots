@@ -1,4 +1,4 @@
-#!/usr/bin/env ruby
+#!/usr/bin/ruby -w
 # encoding: UTF-8
 
 def form_roots(num=3, form=:root)
