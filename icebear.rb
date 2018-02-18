@@ -15,11 +15,12 @@ def form_suffix(shape = nil, shape_two = nil)
   root_shape, root_shape_two, root = shape || rand(100), shape_two || rand(100), ""
   
   # first syllable
-  root << random_phoneme(MEDIAL_CONSONANT) if root_shape < 95
-  root << random_phoneme(NONFIRST_VOWEL) if !root_shape.between?(55,95)
-  root << random_phoneme(INITIAL_OR_FINAL_CONSONANT) if root_shape_two.between?(10, 25) && !root_shape.between?(55,95)
-  root << random_phoneme(MEDIAL_CONSONANT) if root_shape_two < 10 && !root_shape.between?(55,95)
-  root << second_syllable if root_shape_two < 10 && !root_shape.between?(55,95)
+  root << random_phoneme(INITIAL_OR_FINAL_CONSONANT) if root_shape < 33
+  root << random_phoneme(FIRST_VOWEL) if root_shape.between?(4,100)
+  root << random_phoneme(INITIAL_OR_FINAL_CONSONANT) if root_shape_two.between?(21, 88)
+  root << random_phoneme(MEDIAL_CONSONANT) if root_shape_two < 21 && !root_shape.between?(21,88)
+  root << second_syllable if root_shape_two < 21 && !root_shape.between?(21,88)
+
   root
 end
 
