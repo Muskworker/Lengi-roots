@@ -3,16 +3,16 @@
 def form_roots(num = 3, form = :root)
   case form
   when :root
-    num.times { |i| puts "%d: %s" % [i.next, form_root] }
+    num.times { |i| puts '%d: %s' % [i.next, form_root] }
   when :suffix
-    num.times { |i| puts "%d: -%s" % [i.next, form_suffix] }
+    num.times { |i| puts '%d: -%s' % [i.next, form_suffix] }
   else
     puts "Didn't recognize argument \"#{form}\"."
   end
 end
 
 def form_suffix(shape = nil, shape_two = nil)
-  root_shape, root_shape_two, root = shape || rand(100), shape_two || rand(100), ""
+  root_shape, root_shape_two, root = shape || rand(100), shape_two || rand(100), ''
   
   # first syllable
   root << random_phoneme(INITIAL_OR_FINAL_CONSONANT) if root_shape < 33
@@ -25,7 +25,7 @@ def form_suffix(shape = nil, shape_two = nil)
 end
 
 def form_root(shape = nil, shape_two = nil)
-  root_shape, root_shape_two, root = shape || rand(100), shape_two || rand(100), ""
+  root_shape, root_shape_two, root = shape || rand(100), shape_two || rand(100), ''
   
   # first syllable
   root << random_phoneme(INITIAL_OR_FINAL_CONSONANT) if root_shape < 75
@@ -37,7 +37,7 @@ def form_root(shape = nil, shape_two = nil)
 end
 
 def second_syllable
-  syllable_shape, syllable = rand(100), ""
+  syllable_shape, syllable = rand(100), ''
   
 #  syllable << ":" if syllable_shape < 29
   syllable << random_phoneme(NONFIRST_VOWEL)
@@ -72,38 +72,38 @@ def random_phoneme possibilities
 end
 
 INITIAL_OR_FINAL_CONSONANT = { 
-  6 => %w{t k s m n},
-  5 => %w{p b d g f l z ḿ ń},
-  4 => %w{j b́ d́ ǵ ĺ ź t́ ḱ t̀ k̀ m̀ ǹ},
-  3 => %w{x j́ ʼ ṕ p̀ b̀ d̀ g̀ q},
-  2 => %w{m̂ n̂ q̀},
-  1 => %w{h b̂ d̂ ĝ q́}
+  6 => %w[t k s m n],
+  5 => %w[p b d g f l z ḿ ń],
+  4 => %w[j b́ d́ ǵ ĺ ź t́ ḱ t̀ k̀ m̀ ǹ],
+  3 => %w[x j́ ʼ ṕ p̀ b̀ d̀ g̀ q],
+  2 => %w[m̂ n̂ q̀],
+  1 => %w[h b̂ d̂ ĝ q́]
 }
 
 FIRST_VOWEL = { 
-  5 => %w{i},
-  4 => %w{u í},
-  3 => %w{a ú},
-  2 => %w{e á o é},
-  1 => %w{à ó ò â ô h}
+  5 => %w[i],
+  4 => %w[u í],
+  3 => %w[a ú],
+  2 => %w[e á o é],
+  1 => %w[à ó ò â ô h]
 }
 
 MEDIAL_CONSONANT = { 
-  6 => %w{t k s m n},
-  5 => %w{p b d g f l z ḿ ń},
-  4 => %w{j b́ d́ ǵ ĺ ź},
-  3 => %w{t́ ḱ t̀ k̀ m̀ ǹ x j́ ʼ q},
-  2 => %w{ṕ p̀ b̀ d̀ g̀ q̀},
-  1 => %w{m̂ n̂ h q́}
+  6 => %w[t k s m n],
+  5 => %w[p b d g f l z ḿ ń],
+  4 => %w[j b́ d́ ǵ ĺ ź],
+  3 => %w[t́ ḱ t̀ k̀ m̀ ǹ x j́ ʼ q],
+  2 => %w[ṕ p̀ b̀ d̀ g̀ q̀],
+  1 => %w[m̂ n̂ h q́]
   # none: BQ DQ GQ 
 }
 
 NONFIRST_VOWEL = { 
-  5 => %w{i},
-  4 => %w{u},
-  3 => %w{í a},
-  2 => %w{ú e o},
-  1 => %w{á é à ò},
+  5 => %w[i],
+  4 => %w[u],
+  3 => %w[í a],
+  2 => %w[ú e o],
+  1 => %w[á é à ò],
   # Out: O Ə Ɔ X
 }
 
