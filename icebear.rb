@@ -78,7 +78,7 @@ INITIAL_OR_FINAL_CONSONANT = {
   3 => %w[x j́ ʼ ṕ p̀ b̀ d̀ g̀ q],
   2 => %w[m̂ n̂ q̀],
   1 => %w[h b̂ d̂ ĝ q́]
-}
+}.freeze
 
 FIRST_VOWEL = {
   5 => %w[i],
@@ -86,7 +86,7 @@ FIRST_VOWEL = {
   3 => %w[a ú],
   2 => %w[e á o é],
   1 => %w[à ó ò â ô h]
-}
+}.freeze
 
 MEDIAL_CONSONANT = {
   6 => %w[t k s m n],
@@ -96,7 +96,7 @@ MEDIAL_CONSONANT = {
   2 => %w[ṕ p̀ b̀ d̀ g̀ q̀],
   1 => %w[m̂ n̂ h q́]
   # none: BQ DQ GQ
-}
+}.freeze
 
 NONFIRST_VOWEL = {
   5 => %w[i],
@@ -105,7 +105,7 @@ NONFIRST_VOWEL = {
   2 => %w[ú e o],
   1 => %w[á é à ò],
   # Out: O Ə Ɔ X
-}
+}.freeze
 
 class Array
   def random
