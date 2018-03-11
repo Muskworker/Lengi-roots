@@ -3,9 +3,9 @@
 def form_roots(num = 3, form = :root)
   case form
   when :root
-    num.times { |i| puts '%d: %s' % [i.next, form_root] }
+    num.times { |i| puts "#{i.next}: #{form_root}" }
   when :suffix
-    num.times { |i| puts '%d: -%s' % [i.next, form_suffix] }
+    num.times { |i| puts "#{i.next}: -#{form_suffix}" }
   else
     puts "Didn't recognize argument \"#{form}\"."
   end
