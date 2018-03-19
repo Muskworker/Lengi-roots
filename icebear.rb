@@ -11,15 +11,27 @@ def form_roots(num = 3, form = :root)
   end
 end
 
-def form_suffix(shape = nil, shape_two = nil)
-  root_shape, root_shape_two, root = shape || rand(100), shape_two || rand(100), ''
+def form_suffix(shape = rand(100), shape_two = rand(100))
+  # Possible root shapes: 10,000
+  # 36x   -C       (B89)                    | 36
+  # 204x  -CC      (B21)                    | 240
+  # 60x   -CC[+]   (B1)                     | 300
+  # 588x  -CV      (240x V1, 348x E89)      | 888
+  # 1972x -CVC     (E21)                    | 2860
+  # 340x  -CVC[+]  (E1)                     | 3200
+  # 1936x -V       (1120x AH1, 816x AH89)   | 5136
+  # 4624x -VC      (AH21)                   | 9760
+  # 240x  -VC[+]   (CL1)                    | 10000
+  root = ''
 
   # first syllable
-  root << random_phoneme(INITIAL_OR_FINAL_CONSONANT) if root_shape < 33
-  root << random_phoneme(FIRST_VOWEL) if root_shape.between?(4,100)
-  root << random_phoneme(INITIAL_OR_FINAL_CONSONANT) if root_shape_two.between?(21, 88)
-  root << random_phoneme(MEDIAL_CONSONANT) if root_shape_two < 21 && !root_shape.between?(21,88)
-  root << second_syllable if root_shape_two < 21 && !root_shape.between?(21,88)
+  root << random_phoneme(INITIAL_OR_FINAL_CONSONANT) if shape < 33
+  root << random_phoneme(FIRST_VOWEL) if shape >= 4
+  root << if shape_two.between?(21, 88)
+            random_phoneme(INITIAL_OR_FINAL_CONSONANT)
+          elsif shape_two < 21
+            "#{random_phoneme(MEDIAL_CONSONANT)}#{second_syllable}"
+          end
 
   root
 end
