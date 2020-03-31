@@ -30,7 +30,8 @@ def form_suffix(shape = rand(100), shape_two = rand(100))
   root << if shape_two.between?(21, 88)
             random_phoneme(INITIAL_OR_FINAL_CONSONANT)
           elsif shape_two < 21
-            "#{random_phoneme(MEDIAL_CONSONANT)}#{second_syllable}"
+            "#{random_phoneme(MEDIAL_CONSONANT).to_s}#{second_syllable.to_s}"
+          else ""
           end
 
   root
